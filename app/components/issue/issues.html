@@ -1,0 +1,245 @@
+<ul class="breadcrumb">
+    <li>
+        <a href="#">Home</a>
+    </li>
+    <li class="active">Issues</li>
+</ul>
+
+<div class="content-frame">
+
+    <div class="content-frame-top">
+        <div class="page-title">
+            <h2>
+                <span class="fa fa-arrow-circle-o-left"></span> Issue Management</h2>
+        </div>
+        <button type="button" class="btn btn-info mb-control pull-right" data-toggle="modal" data-target="#message-box-success">
+            Report an Issue
+        </button>
+    </div>
+
+    <div class="content-frame-left">
+        <div class="panel panel-primary">
+            <div class="panel-body">
+                <div class="list-group border-bottom" ng-repeat="project in projectData">
+                    <a href="" class="list-group-item" ng-click="getIssueByProject(project.project_id);">{{project.project_title}}</a>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-primary">
+            <div class="panel-body">
+                <div class="list-group border-bottom" ng-repeat="issue in projectIssue">
+                    <a href="" class="list-group-item" ng-click="getIssueById(issue.issue_id);">{{issue.subject}}<button href="" class="btn btn-default btn-sm pull-right" title="Delete"><i class="fa fa-trash-o" aria-hidden="true"></i></button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-frame-body">
+        <div class="panel panel-primary" id="grid_block_1">
+            <div class="panel-heading">
+                <h3>Issue : {{issue}}</h3>
+                <!-- <h3 class="panel-title">Issue-1 : Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                    the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                    and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
+                    leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with
+                    the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
+                    software like Aldus PageMaker including versions of Lorem Ipsum</h3> -->
+            </div>
+            <div class="panel-body">
+                <!-- <div class="messages "> -->
+                <div class="item in" ng-repeat="msg in IssueMsg">
+                    <!-- <div class="image">
+                            <img src="assets/images/users/user2.jpg" alt="John Doe">
+                        </div> -->
+                    <div class="text">
+                        <div class="heading">
+                            <a href="#">John Doe</a>
+                            <span class="pull-right">{{msg.date | date }} {{msg.time}}</span>
+                        </div>
+                        {{msg.send_issues}}
+                        <!-- <span class="pull-right">10</span> -->
+                    </div>
+                    <!-- </div> -->
+                    <!-- <div class="item in">
+                        <div class="image">
+                            <img src="assets/images/users/user2.jpg" alt="John Doe">
+                        </div>
+                        <div class="text">
+                            <div class="heading">
+                                <a href="#">John Doe</a>
+                                <span class="pull-right">20 December, 2017 08:33</span>
+                            </div>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed facilisis suscipit eros vitae iaculis.
+                            <span class="pull-right">10</span>
+                        </div>
+                    </div> -->
+                    <!-- <div class="item in">
+                        <div class="image">
+                            <img src="assets/images/users/user2.jpg" alt="John Doe">
+                        </div>
+                        <div class="text">
+                            <div class="heading">
+                                <a href="#">John Doe</a>
+                                <span class="pull-right">20 December, 2017 08:33</span>
+                            </div>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed facilisis suscipit eros vitae iaculis.
+                            <span class="pull-right">10</span>
+                        </div>
+                    </div> -->
+                    <!-- <div class="item in">
+                        <div class="image">
+                            <img src="assets/images/users/user2.jpg" alt="John Doe">
+                        </div>
+                        <div class="text">
+                            <div class="heading">
+                                <a href="#">John Doe</a>
+                                <span class="pull-right">20 December, 2017 08:33</span>
+                            </div>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed facilisis suscipit eros vitae iaculis.
+                            <span class="pull-right">10</span>
+                        </div>
+                    </div> -->
+                    <!-- <div class="item in">
+                        <div class="image">
+                            <img src="assets/images/users/user2.jpg" alt="John Doe">
+                        </div>
+                        <div class="text">
+                            <div class="heading">
+                                <a href="#">John Doe</a>
+                                <span class="pull-right">20 December, 2017 08:33</span>
+                            </div>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed facilisis suscipit eros vitae iaculis.
+                            <span class="pull-right">10</span>
+                        </div>
+                    </div> -->
+                    <!-- <div class="item in">
+                        <div class="image">
+                            <img src="assets/images/users/user2.jpg" alt="John Doe">
+                        </div>
+                        <div class="text">
+                            <div class="heading">
+                                <a href="#">John Doe</a>
+                                <span class="pull-right">20 December, 2017 08:33</span>
+                            </div>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed facilisis suscipit eros vitae iaculis.
+                            <span class="pull-right">10</span>
+                        </div>
+                    </div> -->
+                    <!-- <div class="item in">
+                        <div class="image">
+                            <img src="assets/images/users/user2.jpg" alt="John Doe">
+                        </div>
+                        <div class="text">
+                            <div class="heading">
+                                <a href="#">John Doe</a>
+                                <span class="pull-right">20 December, 2017 08:33</span>
+                            </div>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed facilisis suscipit eros vitae iaculis.
+                            <span class="pull-right">10</span>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="panel panel-default push-up-10">
+                <div class="panel-body panel-body-search">
+                    <div class="input-group">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default">
+                                <span class="fa fa-camera"></span>
+                            </button>
+                            <button class="btn btn-default">
+                                <span class="fa fa-chain"></span>
+                            </button>
+                        </div>
+                        <input type="text" ng-model="data.message" class="form-control" placeholder="Your Solution..." />
+                        <div class="input-group-btn">
+                            <button ng-click="sendMsg(data);" class="btn btn-info">Send</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- <div class="message-box animated fadeIn" data-sound="alert" id="mb-signout">
+            <div class="mb-container">
+                <div class="mb-middle">
+                    <div class="mb-title"><span class="fa fa-sign-out"></span> Log <strong>Out</strong> ?</div>
+                    <div class="mb-content">
+                        <p>Are you sure you want to log out?</p>                    
+                        <p>Press No if youwant to continue work. Press Yes to logout current user.</p>
+                    </div>
+                    <div class="mb-footer">
+                        <div class="pull-right">
+                            <a href="pages-login.html" class="btn btn-success btn-lg">Yes</a>
+                            <button class="btn btn-default btn-lg mb-control-close">No</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+<!-- <div class="message-box message-box-success animated fadeIn" id="message-box-success">
+    <div class="mb-container">
+        <div class="mb-middle"> -->
+            <form  name="issueDetails"  ng-submit="issueDetails.$valid && addIssue(data)" class="form-horizontal message-box message-box-success animated fadeIn" id="message-box-success" role="form" novalidate >
+                    <div class="mb-container">
+                    <div class="mb-middle"> 
+                          <div class="mb-title"> Add Issue</div>
+                <div class="mb-content">
+                    <!-- START VALIDATIONENGINE PLUGIN -->
+                    <div class="block">
+
+                        <div class="form-group" ng-class="{'has-error': issueDetails.$submitted && issueDetails.title.$invalid && issueDetails.title.$pristine}">
+                            <h4 class="col-md-3 control-label">Issue Title: </h4>
+                            <div class="col-md-9">
+                                <input name="title" type="text" ng-model="data.title" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group" ng-class="{'has-error': issueDetails.$submitted && issueDetails.problem.$invalid && issueDetails.problem.$pristine}">
+                            <h4 class="col-md-3 control-label">Problem: </h4>
+                            <div class="col-md-9">
+                                <input name="problem" type="text" ng-model="data.problem" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group" ng-class="{'has-error': issueDetails.$submitted && issueDetails.project.$invalid && issueDetails.project.$pristine}">
+                            <h4 class="col-md-3 control-label">Project: </h4>
+                            <div class="col-md-9">
+                                <select name="project" class="form-control select2" style="width: 100%;" ng-model="data.project" ng-options="project.project_id as project.project_title for project in projectData ">
+                                    <option selected value="">--Select--</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- <div class="form-group" ng-class="{'has-error': issueDetails.$submitted && issueDetails.name.$invalid && issueDetails.project.$pristine}">
+                            <h4 class="col-md-3 control-label">Project: </h4>
+                            <div class="col-md-9">
+                                <select name="project" class="form-control select2" style="width: 100%;" ng-model="data.project" ng-options="project.project_id as project.project_title for project in projectData ">
+                            </div>
+                        </div> -->
+                        <div class="form-group" ng-class="{'has-error': issueDetails.$submitted && issueDetails.task.$invalid && issueDetails.task.$pristine}">
+                            <h4 class="col-md-3 control-label">Task: </h4>
+                            <div class="col-md-9">
+                                <select name="task" class="form-control select2" style="width: 100%;" ng-model="data.task" ng-options="task.id as task.task for task in taskData "></select>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- <div class="buttons" ng-show="!issueDetails.$visible"> -->
+                <div class="mb-footer">
+                    <button type="submit" class="btn btn-default btn-lg pull-left">Submit</button>
+                    
+                    <button class="btn btn-default btn-lg pull-right mb-control-close">Close</button>
+                </div>
+                <!-- </div> -->
+                </div>
+                </div>
+            </form>
+<!--            
+        </div>
+    </div>
+</div> -->

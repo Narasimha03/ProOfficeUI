@@ -1,0 +1,419 @@
+<ul class="breadcrumb">
+    <li>
+        <a href="#">Home</a>
+    </li>
+    <li class="active">Discussions</li>
+</ul>
+
+<div class="page-title">
+    <h2>
+        <span class="fa fa-arrow-circle-o-left"></span> To-do List</h2>
+</div>
+
+<div class="content-frame-body">
+    <div class="panel panel-default tabs">
+
+        <ul class="nav nav-tabs nav-justified">
+            <li class="active">
+                <a data-target="#tab7" data-toggle="tab" aria-expanded="true">
+                    <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>Project-wise</a>
+            </li>
+            <li class="">
+                <a data-target="#tab8" data-toggle="tab" aria-expanded="false">
+                    <i class="fa fa-calendar-check-o" aria-hidden="true"></i>Day-wise</a>
+            </li>
+            <li class="">
+                <a data-target="#tab9" data-toggle="tab" aria-expanded="false">
+                    <i class="fa fa-calendar-check-o" aria-hidden="true"></i>Priority-wise</a>
+            </li>
+            <!-- <li class="active">
+                <a data-toggle="#tab7">Project-wise</a>
+            </li>
+            <li>
+                <a data-toggle="tab">Day-wise</a>
+            </li>
+            <li>
+                <a data-toggle="tag">Priority-wise</a>
+            </li> -->
+        </ul>
+        <div class="panel-body tab-content">
+            <div class="tab-pane active" id="tab7">
+                <div class="row">
+                    <div class="btn-group pull-right">
+                        <a data-toggle="dropdown" class="btn btn-info dropdown-toggle">Select Project
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li ng-repeat="project in projectData">
+                                <a>{{project.project_title}}</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row push-up-10">
+                    <div class="col-md-4">
+
+                        <h3>Total Tasks</h3>
+
+                        <div class="tasks" id="tasks">
+
+                            <div class="task-item task-primary" ng-repeat="task in data">
+                                <div class="task-text">{{task.description}}</div>
+                                <div class="task-footer">
+                                    <div class="pull-left">{{task.task}}</div>
+                                    <div class="pull-right">{{task.Priority}}</div>
+                                </div>
+                            </div>
+
+                            <!--<div class="task-item task-success">
+                                            <div class="task-text">Suspendisse a tempor eros. Curabitur fringilla maximus lorem, eget congue lacus
+                                                ultrices eu. Nunc et molestie elit. Curabitur consectetur mollis ipsum, id
+                                                hendrerit nunc molestie id.</div>
+                                            <div class="task-footer">
+                                                <div class="pull-left">Task-1</div>
+                                                <div class="pull-right">Priority-3</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="task-item task-warning">
+                                            <div class="task-text">Donec lacus lacus, iaculis nec pharetra id, congue ut tortor. Donec tincidunt
+                                                luctus metus eget rhoncus.</div>
+                                            <div class="task-footer">
+                                                <div class="pull-left">Task-1</div>
+                                                <div class="pull-right">Priority-3</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="task-item task-danger">
+                                            <div class="task-text">Pellentesque faucibus molestie lectus non efficitur. Vestibulum mattis dignissim
+                                                diam, eget dapibus urna rutrum vitae.</div>
+                                            <div class="task-footer">
+                                                <div class="pull-left">Task-1</div>
+                                                <div class="pull-right">Priority-3</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="task-item task-info">
+                                            <div class="task-text">Quisque quis ipsum quis magna bibendum laoreet.</div>
+                                            <div class="task-footer">
+                                                <div class="pull-left">Task-1</div>
+                                                <div class="pull-right">Priority-3</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="task-item task-primary">
+                                            <div class="task-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris rutrum velit
+                                                vel erat fermentum, a dignissim dolor malesuada.</div>
+                                            <div class="task-footer">
+                                                <div class="pull-left">Task-1</div>
+                                                <div class="pull-right">Priority-3</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="task-item task-success">
+                                            <div class="task-text">Suspendisse a tempor eros. Curabitur fringilla maximus lorem, eget congue lacus
+                                                ultrices eu. Nunc et molestie elit. Curabitur consectetur mollis ipsum, id
+                                                hendrerit nunc molestie id.</div>
+                                            <div class="task-footer">
+                                                <div class="pull-left">Task-1</div>
+                                                <div class="pull-right">Priority-3</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="task-item task-warning">
+                                            <div class="task-text">Donec lacus lacus, iaculis nec pharetra id, congue ut tortor. Donec tincidunt
+                                                luctus metus eget rhoncus.</div>
+                                            <div class="task-footer">
+                                                <div class="pull-left">Task-1</div>
+                                                <div class="pull-right">Priority-3</div>
+                                            </div>
+                                        </div>-->
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-4">
+                        <h3>In Progress</h3>
+                        <div class="tasks" id="tasks_progreess">
+
+                            <div class="task-item task-warning">
+                                <div class="task-text">In mauris nunc, blandit a turpis in, vehicula viverra metus. Quisque dictum purus lorem,
+                                    in rhoncus justo dapibus eget. Aenean pretium non mauris et porttitor.</div>
+                                <div class="task-footer">
+                                    <div class="pull-left">Task-1</div>
+                                    <div class="pull-right">Priority-3</div>
+                                </div>
+                            </div>
+
+                            <div class="task-drop push-down-10">
+                                <span class="fa fa-cloud"></span> Drag your task here to start it tracking time
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Completed</h3>
+                        <div class="tasks" id="tasks_completed">
+                            <div class="task-item task-danger task-complete">
+                                <div class="task-text">Donec maximus sodales feugiat.</div>
+                                <div class="task-footer">
+                                    <div class="pull-left">Task-1</div>
+                                    <div class="pull-right">Priority-3</div>
+                                </div>
+                            </div>
+                            <div class="task-item task-info task-complete">
+                                <div class="task-text">Aliquam eget est a dui tincidunt commodo in nec ante.</div>
+                                <div class="task-footer">
+                                    <div class="pull-left">Task-1</div>
+                                    <div class="pull-right">Priority-3</div>
+                                </div>
+                            </div>
+                            <div class="task-drop">
+                                <span class="fa fa-cloud"></span> Drag your task here to finish it
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="tab-pane " id="tab8">
+
+                <div class="row">
+                    <div class="btn-group pull-right">
+                        <div class="col-md-8">
+                            <input type="text" class="form-control datepicker" value="2017-07-12">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row push-up-10">
+                    <div class="col-md-4">
+
+                        <h3>Today</h3>
+
+                        <div class="tasks" id="tasks">
+
+                            <div class="task-item task-primary">
+                                <div class="task-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris rutrum velit vel erat fermentum,
+                                    a dignissim dolor malesuada.</div>
+                                <div class="task-footer">
+                                    <div class="pull-left">Task-1</div>
+                                    <div class="pull-right">Priority-3</div>
+                                </div>
+                            </div>
+
+                            <div class="task-item task-success">
+                                <div class="task-text">Suspendisse a tempor eros. Curabitur fringilla maximus lorem, eget congue lacus ultrices
+                                    eu. Nunc et molestie elit. Curabitur consectetur mollis ipsum, id hendrerit nunc molestie
+                                    id.
+                                </div>
+                                <div class="task-footer">
+                                    <div class="pull-left">Task-1</div>
+                                    <div class="pull-right">Priority-3</div>
+                                </div>
+                            </div>
+
+                            <div class="task-item task-warning">
+                                <div class="task-text">Donec lacus lacus, iaculis nec pharetra id, congue ut tortor. Donec tincidunt luctus metus
+                                    eget rhoncus.</div>
+                                <div class="task-footer">
+                                    <div class="pull-left">Task-1</div>
+                                    <div class="pull-right">Priority-3</div>
+                                </div>
+                            </div>
+
+                            <div class="task-item task-danger">
+                                <div class="task-text">Pellentesque faucibus molestie lectus non efficitur. Vestibulum mattis dignissim diam, eget
+                                    dapibus urna rutrum vitae.</div>
+                                <div class="task-footer">
+                                    <div class="pull-left">Task-1</div>
+                                    <div class="pull-right">Priority-3</div>
+                                </div>
+                            </div>
+
+                            <div class="task-item task-info">
+                                <div class="task-text">Quisque quis ipsum quis magna bibendum laoreet.</div>
+                                <div class="task-footer">
+                                    <div class="pull-left">Task-1</div>
+                                    <div class="pull-right">Priority-3</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Tomorrow</h3>
+                        <div class="tasks" id="tasks_progreess">
+
+                            <div class="task-item task-warning">
+                                <div class="task-text">In mauris nunc, blandit a turpis in, vehicula viverra metus. Quisque dictum purus lorem,
+                                    in rhoncus justo dapibus eget. Aenean pretium non mauris et porttitor.</div>
+                                <div class="task-footer">
+                                    <div class="pull-left">Task-1</div>
+                                    <div class="pull-right">Priority-3</div>
+                                </div>
+                            </div>
+
+                            <div class="task-drop push-down-10">
+                                <span class="fa fa-cloud"></span> Drag your task here to start it tracking time
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Yesterday</h3>
+                        <div class="tasks" id="tasks_completed">
+                            <div class="task-item task-danger task-complete">
+                                <div class="task-text">Donec maximus sodales feugiat.</div>
+                                <div class="task-footer">
+                                    <div class="pull-left">Task-1</div>
+                                    <div class="pull-right">Priority-3</div>
+                            </div>
+                        </div>
+                        <div class="task-item task-info task-complete">
+                            <div class="task-text">Aliquam eget est a dui tincidunt commodo in nec ante.</div>
+                            <div class="task-footer">
+                                <div class="pull-left">Task-1</div>
+                                <div class="pull-right">Priority-3</div>
+                            </div>
+                        </div>
+                        <div class="task-drop">
+                            <span class="fa fa-cloud"></span> Drag your task here to finish it
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+            <div class="tab-pane" id="tab9">
+
+                <div class="row push-up-10">
+                    <div class="col-md-4">
+
+                        <h3>To-do List</h3>
+
+                        <div class="tasks" id="tasks">
+
+                            <div class="task-item task-primary">
+                                <div class="task-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris rutrum velit vel erat fermentum,
+                                    a dignissim dolor malesuada.</div>
+                                <div class="task-footer">
+                                    <div class="pull-left">Task-1</div>
+                                    <div class="pull-right">Priority-3</div>
+                                </div>
+                            </div>
+
+                            <div class="task-item task-success">
+                                <div class="task-text">Suspendisse a tempor eros. Curabitur fringilla maximus lorem, eget congue lacus ultrices
+                                    eu. Nunc et molestie elit. Curabitur consectetur mollis ipsum, id hendrerit nunc molestie
+                                    id.</div>
+                                <div class="task-footer">
+                                    <div class="pull-left">Task-1</div>
+                                    <div class="pull-right">Priority-3</div>
+                                </div>
+                            </div>
+
+                            <div class="task-item task-warning">
+                                <div class="task-text">Donec lacus lacus, iaculis nec pharetra id, congue ut tortor. Donec tincidunt luctus metus
+                                    eget rhoncus.
+                                </div>
+                                <div class="task-footer">
+                                    <div class="pull-left">Task-1</div>
+                                    <div class="pull-right">Priority-3</div>
+                                </div>
+                            </div>
+
+                            <div class="task-item task-danger">
+                                <div class="task-text">Pellentesque faucibus molestie lectus non efficitur. Vestibulum mattis dignissim diam, eget
+                                    dapibus urna rutrum vitae.</div>
+                                <div class="task-footer">
+                                    <div class="pull-left">Task-1</div>
+                                    <div class="pull-right">Priority-3</div>
+                                </div>
+                            </div>
+
+                            <div class="task-item task-info">
+                                <div class="task-text">Quisque quis ipsum quis magna bibendum laoreet.</div>
+                                <div class="task-footer">
+                                    <div class="pull-left">Task-1</div>
+                                    <div class="pull-right">Priority-3</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-4">
+                        <h3>In Progress</h3>
+                        <div class="tasks" id="tasks_progreess">
+
+                            <div class="task-item task-warning">
+                                <div class="task-text">In mauris nunc, blandit a turpis in, vehicula viverra metus. Quisque dictum purus lorem,
+                                    in rhoncus justo dapibus eget. Aenean pretium non mauris et porttitor.</div>
+                                <div class="task-footer">
+                                    <div class="pull-left">Task-1</div>
+                                    <div class="pull-right">Priority-3</div>
+                                </div>
+                            </div>
+
+                            <div class="task-drop push-down-10">
+                                <span class="fa fa-cloud"></span> Drag your task here to start it tracking time
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Completed</h3>
+                        <div class="tasks" id="tasks_completed">
+                            <div class="task-item task-danger task-complete">
+                                <div class="task-text">Donec maximus sodales feugiat.</div>
+                                <div class="task-footer">
+                                    <div class="pull-left">Task-1</div>
+                                    <div class="pull-right">Priority-3</div>
+                                </div>
+                            </div>
+                            <div class="task-item task-info task-complete">
+                                <div class="task-text">Aliquam eget est a dui tincidunt commodo in nec ante.</div>
+                                <div class="task-footer">
+                                    <div class="pull-left">Task-1</div>
+                                    <div class="pull-right">Priority-3</div>
+                                </div>
+                            </div>
+                            <div class="task-drop">
+                                <span class="fa fa-cloud"></span> Drag your task here to finish it
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        
+    </div>
+
+</div>
+
+
+<div class="message-box animated fadeIn" data-sound="alert" id="mb-signout">
+    <div class="mb-container">
+        <div class="mb-middle">
+            <div class="mb-title">
+                <span class="fa fa-sign-out"></span> Log
+                <strong>Out</strong> ?</div>
+            <div class="mb-content">
+                <p>Are you sure you want to log out?</p>
+                <p>Press No if youwant to continue work. Press Yes to logout current user.</p>
+            </div>
+            <div class="mb-footer">
+                <div class="pull-right">
+                    <a href="pages-login.html" class="btn btn-success btn-lg">Yes</a>
+                    <button class="btn btn-default btn-lg mb-control-close">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

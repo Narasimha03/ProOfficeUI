@@ -1,0 +1,142 @@
+
+                <!-- START BREADCRUMB -->
+                <ul class="breadcrumb push-down-0">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Events</a></li>
+                </ul>
+                <!-- END BREADCRUMB -->                                                
+                
+                <!-- START CONTENT FRAME -->
+                <div class="content-frame">            
+                    <!-- START CONTENT FRAME TOP -->
+                    <div class="content-frame-top">                        
+                        <div class="page-title">                    
+                            <h2><span class="fa fa-calendar"></span> Events</h2>
+                        </div>  
+                        <div class="pull-right">
+                            <button class="btn btn-default content-frame-left-toggle"><span class="fa fa-bars"></span></button>
+                        </div>                                                                                
+                    </div>
+                    <!-- END CONTENT FRAME TOP -->
+                    
+                    <!-- START CONTENT FRAME LEFT -->
+                    <div class="content-frame-left">
+                        <h4>New Event</h4>
+                        <div class="form-group">
+                          <div class="input-group">
+                            <input type="text" class="form-control" id="new-event-text" placeholder="Event text..."/>
+                            <textarea type="text" class="form-control" id="event-description" placeholder="Event description..."></textarea>
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <div class="input-group">
+                            <div class="input-group-btn">
+                              <button class="btn btn-primary pull-right" id="new-event">Add</button>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <h4>External Events</h4>
+                        <div class="list-group border-bottom" id="external-events">                                    
+                            <a class="list-group-item external-event">Lorem ipsum dolor</a>
+                            <a class="list-group-item external-event">Nam a nisi et nisi</a>
+                            <a class="list-group-item external-event">Donec tristique eu</a>
+                            <a class="list-group-item external-event">Vestibulum cursus</a>
+                        </div>  
+                        
+                        <div class="panel panel-primary push-up-10">
+                          <div class="panel panel-primary">
+                            <div class="panel-heading">
+                              <h3 class="panel-title">Event Title</h3>
+                            </div>
+                            <div class="panel-body">
+                              <p>FullCalendar is a jQuery plugin that provides a full-sized, drag & drop event calendar like the one below. It uses AJAX to fetch events on-the-fly and is easily configured to use your own feed format. It is visually customizable with a rich API.</p>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    <!-- END CONTENT FRAME LEFT -->
+                    
+                    <!-- START CONTENT FRAME BODY -->
+                    <div class="content-frame-body padding-bottom-0">
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div id="alert_holder"></div>
+                                <div class="calendar">                                
+                                    <div id="calendar"></div>                            
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>                    
+                    <!-- END CONTENT FRAME BODY -->
+                    
+                </div>               
+                <!-- END CONTENT FRAME -->                                
+                
+            
+        <!-- <div class="message-box animated fadeIn" data-sound="alert" id="mb-signout">
+            <div class="mb-container">
+                <div class="mb-middle">
+                    <div class="mb-title"><span class="fa fa-sign-out"></span> Log <strong>Out</strong> ?</div>
+                    <div class="mb-content">
+                        <p>Are you sure you want to log out?</p>                    
+                        <p>Press No if youwant to continue work. Press Yes to logout current user.</p>
+                    </div>
+                    <div class="mb-footer">
+                        <div class="pull-right">
+                            <a href="pages-login.html" class="btn btn-success btn-lg">Yes</a>
+                            <button class="btn btn-default btn-lg mb-control-close">No</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="message-box message-box-success animated fadeIn" id="message-box-success">
+            <div class="mb-container">
+                <div class="mb-middle">
+                    <div class="mb-title"> Add Team</div>
+                    <div class="mb-content">
+                        <!-- START VALIDATIONENGINE PLUGIN -->
+                        <div class="block">
+                            <form class="form-horizontal" role="form">                                    
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Name: </label>
+                                    <div class="col-md-10">
+                                        <input type="text" class="form-control"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Email: </label>
+                                    <div class="col-md-10">
+                                        <input type="email" class="form-control"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Phone: </label>
+                                    <div class="col-md-10">
+                                        <input type="text" class="form-control"/>
+                                    </div>
+                                </div>                                    
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Role</label>
+                                    <div class="col-md-10">
+                                        <input type="text" class="form-control"/>
+                                    </div>
+                                </div>                                
+                            </form>
+                        </div>                                        
+                        <!-- END VALIDATIONENGINE PLUGIN -->
+                    </div>
+                    <div class="mb-footer">
+                        <button class="btn btn-default btn-lg pull-left">Submit</button>
+                        <button class="btn btn-default btn-lg pull-right mb-control-close">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>                      
+
+    

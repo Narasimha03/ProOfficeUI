@@ -1,0 +1,313 @@
+
+
+            <ul class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li class="active">Taskplanner</li>
+            </ul>
+
+            <div class="page-title">
+                <h2><span class="fa fa-arrow-circle-o-left"></span> Task Planner</h2>
+            </div>
+
+            <div class="page-content-wrap">
+
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <!-- START DEFAULT DATATABLE -->
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Task List</h3>
+                                <ul class="panel-controls">
+                                    <li>
+                                        <div class="btn-group pull-right">
+                                            <a data-toggle="dropdown" ng-click="getProject()" class="btn btn-info dropdown-toggle">Select Project
+                                                <span class="caret"></span></a>
+                                            </a>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li ng-repeat="project in projectData"><a href="#">{{project.project_title}}</a></li>
+
+                                            </ul>
+
+                                            <!--<div class="btn-group">
+                                            <a href="#" ng-click="getProject()" data-toggle="dropdown" class="btn btn-primary dropdown-toggle">Projects 
+                                                <span class="caret"></span></a>
+                    
+                                            <ul  ng-repeat="project in projectData" class="dropdown-menu"  role="menu">
+                                                <li role="presentation" class="dropdown-header">Select Project</li>
+                                                <li ng-repeat="project in projectData"><a href="#">{{project.project_title}}</a></li>
+                                                
+                                            </ul>
+                                        </div>-->
+                                    </li>
+                                    <li>&nbsp;&nbsp;<button type="button" ng-click="hideForm=false" class="btn btn-info mb-control"
+                                        data-toggle="modal" data-target="#message-box-success">Add Task</button></li>
+                                    <!-- <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li> -->
+                                </ul>
+                                </div>
+                                <div class="panel-body">
+                                    <table class="table table-hover" style="height:620px;" fixed-header>
+                                        <thead>
+                                            <tr>
+                                                <th>Sl</th>
+                                                <th>Task</th>
+                                                <th>Description</th>
+                                                <th>Assigned to</th>
+                                                <th>Start</th>
+                                                <th>End</th>
+                                                <th>Task Remarks</th>
+                                                <th>Priority</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="task in data">
+                                                <td>{{$index+1}}</td>
+                                                <td>{{task.task}}</td>
+                                                <td>{{task.description}}</td>
+                                                <td>{{task.assignedto}}</td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <label class="switch switch-small">
+                                                            <input type="checkbox" ng-click="aaddStartDate()" ng-model="checked" ng-disabled="checked"  value="1" />
+                                                    <span></span>
+                                                    </label>
+
+                                                    </div>
+                                                </td>
+                                                <!--<div ng-repeat="c in checkboxes">-->
+
+                                                <!--<input id="check_{{ c }}" bs-switch emit-change="{{ c }}" ng-model="check[c]" switch-active="{{ active }}" type="checkbox" ng-click="addStartDate()">-->
+
+
+
+                                                <!--<input id="show" name="type" type="checkbox" ng-model="event.type.checked">-->
+                                                <!--angular.module('Joy', [])
+                                                              .controller('JoyCtrl', ['$scope', function ($scope) {
+                                                              $scope.event = {
+                                                                  type: {
+                                                                    checked: true
+                                                                              }
+                                                                        };
+                                                               }]);-->
+
+
+
+                                                <td>
+                                                    <div class="form-group">
+                                                        <label class="switch switch-small">
+                                                            <input type="checkbox" ng-click="addEndTime()" ng-model="check"  ng-disabled="check" value="1" />
+                                                            <span></span>
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td>{{task.priority}}</td>
+                                                <td>
+                                                    {{task.priority}}
+                                                </td>
+                                                <td>{{task.status}}</td>
+                                                <td>
+                                                    <a href="" class="btn btn-default btn-xs" type="button" ng-click="hideForm=false" data-toggle="modal" data-target="#myModal"
+                                                        title="Edit">
+                                                    <i class="fa fa-pencil"></i>
+                                                    </a>
+
+                                                    <!--<a href="" class="btn btn-default btn-xs" ng-click="EditBook($index)" data-toggle="modal" data-target="#myModal" title="Edit">
+                            <i class="fa fa-pencil"></i>
+                        </a>-->
+
+
+                                                    <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
+                                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                  </a>
+                                                </td>
+                                            </tr>
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- <div class="message-box animated fadeIn" data-sound="alert" id="mb-signout">
+            <div class="mb-container">
+                <div class="mb-middle">
+                    <div class="mb-title"><span class="fa fa-sign-out"></span> Log <strong>Out</strong> ?</div>
+                    <div class="mb-content">
+                        <p>Are you sure you want to log out?</p>
+                        <p>Press No if youwant to continue work. Press Yes to logout current user.</p>
+                    </div>
+                    <div class="mb-footer">
+                        <div class="pull-right">
+                            <a href="pages-login.html" class="btn btn-success btn-lg">Yes</a>
+                            <button class="btn btn-default btn-lg mb-control-close">No</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <form name="taskDetails" ng-hide="hideForm" ng-submit="taskDetails.$valid && addTask(data)" class="form-horizontal" role="form"
+            novalidate>
+            <div class="message-box message-box-success animated fadeIn" id="message-box-success">
+                <div class="mb-container">
+                    <div class="mb-middle">
+
+                        <div class="mb-title">Add Task</div>
+                        <div class="mb-content">
+                            <!-- START VALIDATIONENGINE PLUGIN -->
+                            <div class="block">
+
+                                <div class="form-group" ng-class="{'has-error': taskDetails.$submitted && taskDetails.task.$invalid && taskDetails.task.$pristine}">
+                                    <h4 class="col-md-3 control-label">Task: </h4>
+                                    <div class="col-md-9">
+                                        <input name="task" type="text" ng-model="data.task" class="form-control" placeholder="Enter..." required/>
+                                    </div>
+                                </div>
+                                <div class="form-group" ng-class="{'has-error': taskDetails.$submitted && taskDetails.description.$invalid && taskDetails.description.$pristine}">
+                                    <h4 class="col-md-3 control-label">Description: </h4>
+                                    <div class="col-md-9">
+                                        <input name="description" type="text" ng-model="data.description" class="form-control" placeholder="Enter..." required/>
+                                    </div>
+                                </div>
+                                <div class="form-group" ng-class="{'has-error': taskDetails.$submitted && taskDetails.startDate.$invalid && taskDetails.startDate.$pristine}">
+                                    <h4 class="col-md-3 control-label">Start Date: </h4>
+                                    <div class="col-md-9">
+                                        <!--<datepicker  date-set-hidden="true" date-format="dd-MM-yyyy" style="z-index:999">
+                                        <input class="form-control" name="startDate" type="text" ng-model="data.date" ng-readonly="true" placeholder="Enter ..."
+                                            required/>
+                                    </datepicker>-->
+                                        <!--<md-datepicker ng-model="ctrl.myDate" md-placeholder="Enter date"></md-datepicker>-->
+                                        <input name="startDate" type="date" ng-model="data.start_date" class="form-control" placeholder="Enter..." required/>
+                                    </div>
+
+                                </div>
+                                <div class="form-group" ng-class="{'has-error': taskDetails.$submitted && taskDetails.endDate.$invalid && taskDetails.endDate.$pristine}">
+                                    <h4 class="col-md-3 control-label">End Date: </h4>
+                                    <div class="col-md-9">
+                                        <input name="endDate" type="date" ng-model="data.end_date" class="form-control" placeholder="Enter..." required/>
+                                    </div>
+                                </div>
+                                <div class="form-group" ng-class="{'has-error': taskDetails.$submitted && taskDetails.assignedTo.$invalid && assignedTo.$pristine}">
+                                    <h4 class="col-md-3 control-label">Assigned to: </h4>
+                                    <div class="col-md-9">
+                                        <input name="assignedTo" type="text" ng-model="data.assignedto" class="form-control" placeholder="Enter..." required/>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group" ng-class="{'has-error': taskDetails.$submitted && taskDetails.Priority.$invalid && Priority.$pristine}">
+                                    <h4 class="col-md-3 control-label">Priority: </h4>
+                                    <div class="col-md-9">
+                                        <select class="form-control select2" name="Priority" ng-model="data.priority" ng-options="item for item in priority"><span class="caret"></span>
+                                        <option value=''>--Select--</option>
+                                    </select>
+                                        <!--<select class="form-control select2" style="width: 100%;" ng-model="data.priority">
+                        <option selected="selected">--Select--</option>
+                        <option ng-repeat=" item in priority " value="{{item}}">{{item}}</option>
+                        
+                      </select>-->
+
+                                        <!--<select class="form-control select2" style="width: 100%;" ><span class="caret"/>
+                                     <option selected="selected">--Select--</option>
+                                     <option>Urgent</option>
+                                     <option>Normal</option>
+                                     <option>Urgent</option>
+                                     <option>Normal</option>
+                                    </select>-->
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- END VALIDATIONENGINE PLUGIN -->
+                        </div>
+                        <div class="mb-footer">
+                            <!--ng-click="disableButton()" ng-disabled="isDisabled"-->
+                            <button type="submit" class="btn btn-default btn-lg pull-left">Submit</button>
+                            <button class="btn btn-default btn-lg pull-right mb-control-close">Close</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <!--<form name="taskDetails" ng-hide="hideForm" ng-submit="Task.$valid && editTask(data)" class="form-horizontal" role="form"
+        novalidate>
+        <div class="message-box message-box-success animated fadeIn" id="myModal">
+            <div class="mb-container">
+                <div class="mb-middle">
+
+                    <div class="mb-title">Edit Task</div>
+                    <div class="mb-content">
+                       
+                        <div class="block">
+
+                            <div class="form-group" ng-class="{'has-error': taskDetails.$submitted && taskDetails.task.$invalid && taskDetails.task.$pristine}">
+                                <h4 class="col-md-3 control-label">Task: </h4>
+                                <div class="col-md-9">
+                                    <input name="task" type="text" ng-model="editdata.task" class="form-control" placeholder="Enter..." required/>
+                                </div>
+                            </div>
+                            <div class="form-group" ng-class="{'has-error': taskDetails.$submitted && taskDetails.description.$invalid && taskDetails.description.$pristine}">
+                                <h4 class="col-md-3 control-label">Description: </h4>
+                                <div class="col-md-9">
+                                    <input name="description" type="text" ng-model="editdata.description" class="form-control" placeholder="Enter..." required/>
+                                </div>
+                            </div>
+                            <div class="form-group" ng-class="{'has-error': taskDetails.$submitted && taskDetails.startDate.$invalid && taskDetails.startDate.$pristine}">
+                                <h4 class="col-md-3 control-label">Start Date: </h4>
+                                <div class="col-md-9">
+                                    <input name="startDate" type="text" ng-model="editdata.start_date" class="form-control" placeholder="Enter..." required/>
+                                </div>
+                            </div>
+                            <div class="form-group" ng-class="{'has-error': taskDetails.$submitted && taskDetails.endDate.$invalid && taskDetails.endDate.$pristine}">
+                                <h4 class="col-md-3 control-label">End Date: </h4>
+                                <div class="col-md-9">
+                                    <input name="endDate" type="text" ng-model="editdata.end_date" class="form-control" placeholder="Enter..." required/>
+                                </div>
+                            </div>
+                            <div class="form-group" ng-class="{'has-error': taskDetails.$submitted && taskDetails.assignedTo.$invalid && assignedTo.$pristine}">
+                                <h4 class="col-md-3 control-label">Assigned to: </h4>
+                                <div class="col-md-9">
+                                    <input name="assignedTo" type="text" ng-model="editdata.assignedto" class="form-control" placeholder="Enter..." required/>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group" ng-class="{'has-error': taskDetails.$submitted && taskDetails.Priority.$invalid && Priority.$pristine}">
+                                <h4 class="col-md-3 control-label">Priority: </h4>
+                                <div class="col-md-9">
+                                    <select class="form-control" name="Priority" ng-model="editdata.priority" ng-options="item for item in priority"></select>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="mb-footer">
+                       
+                        <button type="submit" class="btn btn-default btn-lg pull-left">Edit Task</button>
+                      
+                        <button type="button" class="btn btn-default btn-lg pull-right" data-dismiss="modal">Cancel</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </form>-->
+        <!-- START SCRIPTS -->
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>-->
+
+        

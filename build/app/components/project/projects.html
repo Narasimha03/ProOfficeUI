@@ -1,0 +1,178 @@
+
+
+            <ul class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li class="active">Projects</li>
+            </ul>
+
+            <div class="page-title">
+                <h2><span class="fa fa-arrow-circle-o-left"></span> Projects</h2>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Projects</h3>
+
+
+                            <ul class="panel-controls">
+                                <li><button type="button" ng-click="hideForm=false" class="btn btn-info mb-control" data-toggle="modal" data-target="#message-box-success">Add Project</button></li>
+
+                                <!-- <li>&nbsp;&nbsp;<button type="button" pdf-save-button="idOneGraph" pdf-name="projects.pdf" class="btn btn-info ">Save as PDF</button></li> -->
+                            </ul>
+                            <!-- <ul class="panel-controls">
+                                <li> <input type="file" name="file" class="form-control" onchange="angular.element(this).scope().loadFile(this.files)"
+                                    /></li>
+                                <li> <input type="button" value="Upload Data" class="btn btn-info" ng-click="handleFile()" />
+                                   
+                                </li>
+
+                            </ul> -->
+                        </div>
+                        <div class="panel-body" pdf-save-content="idOneGraph">
+                            <table class="table table-hover">
+                                <!--fixedheader    style="height:620px;"-->
+                                <thead>
+                                    <tr>
+                                        <th>Sl</th>
+                                        <th>Project Title</th>
+                                        <th>Client Name</th>
+                                        <th>Due Date</th>
+                                        <th>Status</th>
+                                        <th>Progress</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="project in data">
+                                        <td>{{$index+1}}</td>
+                                        <td>{{project.project_title}}</td>
+                                        <td>{{project.client_name}}</td>
+                                        <td>{{project.due_date | date}}</td>
+                                        <td>{{project.status}}</td>
+                                        <td>
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="{{project.progress}}" aria-valuemin="0"
+                                                    aria-valuemax="100" ng-style="{width:(project.progress)}">{{project.progress}}
+                                                </div>
+                                            </div>
+                                            <!--<div class="progress-bar" role="progressbar" aria-valuenow="{{project.progress}}" aria-valuemin="0" aria-valuemax="100" ng-style="width:{{value}}%">
+                                                    <span class="sr-only">{{project.progress}}% Complete</span>{{project.progress}}
+                                                </div>-->
+                                        </td>
+                                        <td>
+                                            <a href="" class="btn btn-default btn-xs" ng-click="editTeam($index)" data-toggle="tooltip" data-box="#message-box-success"
+                                                title="Edit">
+                                                    <i class="fa fa-pencil"></i>
+
+                                                    </a>
+                                            <a href="" ng-click="hideForm=false" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
+                                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                  </a>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- <div class="message-box animated fadeIn" data-sound="alert" id="mb-signout">
+        <div class="mb-container">
+            <div class="mb-middle">
+                <div class="mb-title"><span class="fa fa-sign-out"></span> Log <strong>Out</strong> ?</div>
+                <div class="mb-content">
+                    <p>Are you sure you want to log out?</p>
+                    <p>Press No if youwant to continue work. Press Yes to logout current user.</p>
+                </div>
+                <div class="mb-footer">
+                    <div class="pull-right">
+                        <a href="pages-login.html" class="btn btn-success btn-lg">Yes</a>
+                        <button class="btn btn-default btn-lg mb-control-close">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <form name="projectDetails" ng-submit="projectDetails.$valid && addProject(data)" ng-hide="hideForm" class="form-horizontal"
+        role="form" novalidate>
+        <div class="message-box message-box-success animated fadeIn" id="message-box-success">
+            <div class="mb-container">
+                <div class="mb-middle">
+
+                    <div class="mb-title"> Add Project</div>
+                    <div class="mb-content">
+                        <!-- START VALIDATIONENGINE PLUGIN -->
+                        <div class="block">
+
+                            <div class="form-group" ng-class="{'has-error': projectDetails.$submitted && projectDetails.projectTitle.$invalid && projectDetails.projectTitle.$pristine}">
+                                <h4 class="col-md-3 control-label">Project Title: </h4>
+                                <div class="col-md-9">
+                                    <input name="projectTitle" type="text" ng-model="data.project_title" class="form-control" placeholder="Enter..." required/>
+                                </div>
+                            </div>
+                            <div class="form-group" ng-class="{'has-error': projectDetails.$submitted && projectDetails.clientName.$invalid && projectDetails.clientName.$pristine}">
+                                <h4 class="col-md-3 control-label">Client Name: </h4>
+                                <div class="col-md-9">
+                                    <input name="clientName" type="text" ng-model="data.client_name" class="form-control" placeholder="Enter..." required/>
+                                </div>
+                            </div>
+                            <div class="form-group" ng-class="{'has-error': projectDetails.$submitted && projectDetails.dueDate.$invalid && projectDetails.dueDate.$pristine}">
+                                <h4 class="col-md-3 control-label">Due Date: </h4>
+                                <div class="col-md-9">
+                                    <input name="dueDate" type="date" ng-model="data.due_date" class="form-control" placeholder="Enter..." required/>
+                                </div>
+                            </div>
+
+
+                            <!--<div class="form-group" ng-class="{'has-error': projectDetails.$submitted && projectDetails.dueDate.$invalid && projectDetails.dueDate.$pristine}">
+                                <h4 class="col-md-3 control-label">Due Date: </h4>
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    
+                                    <datepicker date-set="{{today1}}" date-set-hidden="true" date-format="MM-dd-yyyy" style="z-index:999">
+                                        <input class="form-control" name="dueDate" type="text" ng-model="data.due_date" ng-readonly="true" placeholder="Enter ..."
+                                            required/>
+                                    </datepicker>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group" ng-class="{'has-error': projectDetails.$submitted && projectDetails.dueDate.$invalid && projectDetails.dueDate.$pristine}">
+                                    <label>Due Date:</label>
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        
+                                        <datepicker date-set="{{today1}}" date-set-hidden="true" date-format="MM-dd-yyyy" style="z-index:999">
+                                            <input class="form-control" name="dueDate" type="text" ng-model="data.due_date" ng-readonly="true"
+                                                placeholder="Enter ..." required/>
+                                        </datepicker>
+                                    </div>
+                                </div>
+                            </div>
+-->
+
+                        </div>
+                        <!-- END VALIDATIONENGINE PLUGIN -->
+                    </div>
+                    <div class="mb-footer">
+                        <!--ng-click="disableButton()" ng-disabled="isDisabled"-->
+                        <button type="submit" class="btn btn-default btn-lg pull-left">Submit</button>
+                        <button class="btn btn-default btn-lg pull-right mb-control-close">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </form>
+
